@@ -63,6 +63,8 @@ export const Annotator = ({
   showTags = getFromLocalStorage("showTags", true),
   enabledTools = [
     "select",
+    // "pan",
+    // "zoom",
     "create-point",
     "create-box",
     "create-polygon",
