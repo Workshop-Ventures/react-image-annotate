@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState } from "react"
 const defaultSettings = {
   showCrosshairs: false,
   showHighlightBox: true,
-  wasdMode: true,
+  wasdMode: false,
 }
 
 export const SettingsContext = createContext(defaultSettings)
@@ -26,7 +26,8 @@ const pullSettingsFromLocalStorage = () => {
   return settings
 }
 
-export const useSettings = () => useContext(SettingsContext)
+// export const useSettings = () => useContext(SettingsContext)
+export const useSettings = () => defaultSettings
 
 export const SettingsProvider = ({ children }) => {
   const [state, changeState] = useState(() => pullSettingsFromLocalStorage())
@@ -34,6 +35,7 @@ export const SettingsProvider = ({ children }) => {
     changeState({ ...state, [setting]: value })
     window.localStorage.setItem(`settings_${setting}`, JSON.stringify(value))
   }
+  // const changeSetting = () => {}
   return (
     <SettingsContext.Provider value={{ ...state, changeSetting }}>
       {children}
