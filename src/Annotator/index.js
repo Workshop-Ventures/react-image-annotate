@@ -121,6 +121,7 @@ export const Annotator = ({
       showMask: true,
       labelImages: imageClsList.length > 0 || imageTagList.length > 0,
       regionClsList,
+      selectedCls: regionClsList[0],
       regionTagList,
       imageClsList,
       imageTagList,
