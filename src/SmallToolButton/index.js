@@ -37,7 +37,7 @@ export const SmallToolButton = ({
             width: 50,
             height: 50,
             margin: 1,
-            color: selected ? blue[500] : undefined,
+            // color: selected ? blue[500] : undefined,
           }}
         >
           {icon}

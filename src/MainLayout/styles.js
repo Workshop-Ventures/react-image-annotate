@@ -7,8 +7,14 @@ export default {
     flexDirection: "column",
     height: "100%",
     maxHeight: "100vh",
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
+    backgroundColor: "#inherit",
     overflow: "hidden",
+    "& div": {
+      "& div": {
+        backgroundColor: "inherit",
+      },
+    },
     "&.fullscreen": {
       position: "absolute",
       zIndex: 99999,

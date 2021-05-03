@@ -22,17 +22,22 @@ export default {
     },
   },
   row: {
-    padding: 4,
+    padding: 1,
     cursor: "pointer",
     "&.header:hover": {
-      backgroundColor: "#fff",
+      // backgroundColor: "#fff",
+      backgroundColor: "inherit",
     },
     "&.highlighted": {
-      backgroundColor: blue[100],
+      // backgroundColor: blue[100],
+      // backgroundColor: "#ccc",
+      border: "1px solid #ccc",
+      borderRadius: "5px",
     },
     "&:hover": {
-      backgroundColor: blue[50],
-      color: grey[800],
+      // backgroundColor: blue[50],
+      // backgroundColor: "#ccc",
+      // color: grey[800],
     },
   },
   chip: {

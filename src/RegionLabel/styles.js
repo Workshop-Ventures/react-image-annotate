@@ -14,6 +14,7 @@ export default {
     },
     "&.highlighted": {
       opacity: 0.9,
+      backgroundColor: "white",
       "&:hover": {
         opacity: 1,
       },

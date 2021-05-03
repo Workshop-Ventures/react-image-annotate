@@ -29,10 +29,43 @@ import HistorySidebarBox from "../HistorySidebarBox"
 import useEventCallback from "use-event-callback"
 import getHotkeyHelpText from "../utils/get-hotkey-help-text"
 import ClassSelectionMenu from "../ClassSelectionMenu"
-import { Button } from "@material-ui/core"
+import { Box, Button } from "@material-ui/core"
 
 const emptyArr = []
-const useStyles = makeStyles(styles)
+const useStyles = makeStyles((theme) => {
+  console.log("Theme", theme)
+  return {
+    container: {
+      display: "flex",
+      flexGrow: 1,
+      flexDirection: "column",
+      height: "100%",
+      maxHeight: "100vh",
+      // backgroundColor: "#fff",
+      backgroundColor: theme.palette.background.default,
+      overflow: "hidden",
+      "& div": {
+        "& div": {
+          backgroundColor: "inherit",
+        },
+      },
+      "&.fullscreen": {
+        position: "absolute",
+        zIndex: 99999,
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+      },
+    },
+    headerTitle: {
+      fontWeight: "bold",
+      // color: grey[700],
+      // color: "#ff0000",
+      paddingLeft: 16,
+    },
+  }
+})
 
 const HotkeyDiv = withHotKeys(({ hotKeys, children, divRef, ...props }) => (
   <div {...{ ...hotKeys, ...props }} ref={divRef}>
@@ -280,13 +313,13 @@ export const MainLayout = ({
                 helperText:
                   "Drag/Pan (right or middle click)" +
                   getHotkeyHelpText("pan_tool"),
-                alwaysShowing: true,
+                // alwaysShowing: true,
               },
               {
                 name: "zoom",
                 helperText:
                   "Zoom In/Out (scroll)" + getHotkeyHelpText("zoom_tool"),
-                alwaysShowing: true,
+                // alwaysShowing: true,
               },
               {
                 name: "show-tags",
@@ -377,22 +410,37 @@ export const MainLayout = ({
                   keyframes={state.keyframes}
                 />
               ),
-              state.labelImages && (
+              false && (
                 <HistorySidebarBox
                   history={state.history}
                   onRestoreHistory={action("RESTORE_HISTORY")}
                 />
               ),
-              <Button
-                onClick={() => {
-                  dispatch({
-                    type: "HEADER_BUTTON_CLICKED",
-                    buttonName: "Save",
-                  })
-                }}
-              >
-                Save
-              </Button>,
+              <Box display="flex" justifyContent="space-evenly" m={2}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    dispatch({
+                      type: "HEADER_BUTTON_CLICKED",
+                      buttonName: "Save",
+                    })
+                  }}
+                >
+                  Save
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    dispatch({
+                      type: "HEADER_BUTTON_CLICKED",
+                      buttonName: "Cancel",
+                    })
+                  }}
+                >
+                  Cancel
+                </Button>
+              </Box>,
             ].filter(Boolean)}
           >
             {canvas}

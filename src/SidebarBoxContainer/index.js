@@ -11,7 +11,30 @@ import classnames from "classnames"
 import useEventCallback from "use-event-callback"
 import SidebarBox from "react-material-workspace-layout/SidebarBox"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  overRide: {
+    // Set text colors using theme
+    "& div": {
+      color: theme.palette.text.secondary,
+      "& div": {
+        color: "inherit",
+        // Target the "grabber" handles, give them theme background color so they cover the border line
+        "& div div div div div": {
+          backgroundColor: theme.palette.background.default,
+        },
+        // Icon color using theme
+        "& div.iconContainer": {
+          color: "inherit!important",
+          "& svg": {
+            color: "inherit!important",
+          },
+        },
+      },
+      "& p": {
+        color: "inherit",
+      },
+    },
+  },
   container: { margin: 8 },
   header: {
     display: "flex",
@@ -26,9 +49,11 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     flexGrow: 1,
     paddingLeft: 8,
-    color: grey[800],
+    // color: grey[800],
+    color: "inherit",
     "& span": {
-      color: grey[600],
+      // color: grey[600],
+      color: "inherit",
       fontSize: 12,
     },
   },
@@ -54,7 +79,7 @@ const useStyles = makeStyles({
       overflow: "visible",
     },
   },
-})
+}))
 
 export const SidebarBoxContainer = ({
   icon,
@@ -77,9 +102,11 @@ export const SidebarBoxContainer = ({
   const toggleExpanded = useEventCallback(() => changeExpanded(!expanded))
 
   return (
-    <SidebarBox icon={icon} title={title}>
-      {children}
-    </SidebarBox>
+    <div className={classes.overRide} id="styler">
+      <SidebarBox icon={icon} title={title}>
+        {children}
+      </SidebarBox>
+    </div>
   )
 }
 

@@ -107,6 +107,7 @@ export const RegionLabel = ({
               style={{ width: 22, height: 22 }}
               size="small"
               variant="outlined"
+              color="primary"
             >
               <TrashIcon style={{ marginTop: -8, width: 16, height: 16 }} />
             </IconButton>
