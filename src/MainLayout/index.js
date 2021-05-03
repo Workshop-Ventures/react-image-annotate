@@ -279,7 +279,9 @@ export const MainLayout = ({
                   keyframes={state.keyframes}
                 />
               ) : activeImage ? (
-                <div className={classes.headerTitle}>{activeImage.name}</div>
+                <div key="imageTitle" className={classes.headerTitle}>
+                  {activeImage.name}
+                </div>
               ) : null,
             ].filter(Boolean)}
             headerItems={[
@@ -367,13 +369,21 @@ export const MainLayout = ({
               )}
             rightSidebarItems={[
               debugModeOn && (
-                <DebugBox state={debugModeOn} lastAction={state.lastAction} />
+                <DebugBox
+                  key="DebugBox"
+                  state={debugModeOn}
+                  lastAction={state.lastAction}
+                />
               ),
               state.taskDescription && (
-                <TaskDescription description={state.taskDescription} />
+                <TaskDescription
+                  key="taskDescription"
+                  description={state.taskDescription}
+                />
               ),
               state.regionClsList && (
                 <ClassSelectionMenu
+                  key="ClassSelectionMenu"
                   selectedCls={state.selectedCls}
                   regionClsList={state.regionClsList}
                   onSelectCls={action("SELECT_CLASSIFICATION", "cls")}
@@ -381,6 +391,7 @@ export const MainLayout = ({
               ),
               state.labelImages && (
                 <TagsSidebarBox
+                  key="TagsSidebarBox"
                   currentImage={activeImage}
                   imageClsList={state.imageClsList}
                   imageTagList={state.imageTagList}
@@ -395,6 +406,7 @@ export const MainLayout = ({
               //   />
               // ),
               <RegionSelector
+                key="RegionSelector"
                 regions={activeImage ? activeImage.regions : emptyArr}
                 onSelectRegion={action("SELECT_REGION", "region")}
                 onDeleteRegion={action("DELETE_REGION", "region")}
@@ -402,6 +414,7 @@ export const MainLayout = ({
               />,
               state.keyframes && (
                 <KeyframesSelector
+                  key="KeyframesSelector"
                   onChangeVideoTime={action("CHANGE_VIDEO_TIME", "newTime")}
                   onDeleteKeyframe={action("DELETE_KEYFRAME", "time")}
                   onChangeCurrentTime={action("CHANGE_VIDEO_TIME", "newTime")}
@@ -416,7 +429,12 @@ export const MainLayout = ({
                   onRestoreHistory={action("RESTORE_HISTORY")}
                 />
               ),
-              <Box display="flex" justifyContent="space-evenly" m={2}>
+              <Box
+                key="save-buttons"
+                display="flex"
+                justifyContent="space-evenly"
+                m={2}
+              >
                 <Button
                   variant="contained"
                   color="primary"

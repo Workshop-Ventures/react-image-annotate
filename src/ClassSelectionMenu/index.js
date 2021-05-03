@@ -83,6 +83,7 @@ export const ClassSelectionMenu = ({
         <LabelContainer
           className={classnames({ selected: label === selectedCls })}
           onClick={() => onSelectCls(label)}
+          key={label}
         >
           <Circle style={{ backgroundColor: colors[index % colors.length] }} />
           <Label className={classnames({ selected: label === selectedCls })}>
