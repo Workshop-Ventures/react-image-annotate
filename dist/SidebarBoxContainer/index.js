@@ -12,10 +12,16 @@ import SidebarBox from "react-material-workspace-layout/SidebarBox";
 var useStyles = makeStyles(function (theme) {
   return {
     overRide: {
+      // Set text colors using theme
       "& div": {
         color: theme.palette.text.secondary,
         "& div": {
           color: "inherit",
+          // Target the "grabber" handles, give them theme background color so they cover the border line
+          "& div div div div div": {
+            backgroundColor: theme.palette.background.default
+          },
+          // Icon color using theme
           "& div.iconContainer": {
             color: "inherit!important",
             "& svg": {

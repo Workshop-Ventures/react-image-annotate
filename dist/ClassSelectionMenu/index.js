@@ -16,7 +16,7 @@ var LabelContainer = styled("div")({
   alignItems: "center",
   cursor: "pointer",
   opacity: 0.7,
-  // backgroundColor: "#fff",
+  backgroundColor: "#fff",
   "&:hover": {
     opacity: 1
   },

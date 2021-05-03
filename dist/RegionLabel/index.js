@@ -89,7 +89,8 @@ export var RegionLabel = function RegionLabel(_ref) {
       height: 22
     },
     size: "small",
-    variant: "outlined"
+    variant: "outlined",
+    color: "primary"
   }, /*#__PURE__*/React.createElement(TrashIcon, {
     style: {
       marginTop: -8,

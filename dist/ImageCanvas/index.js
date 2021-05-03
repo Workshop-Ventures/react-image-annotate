@@ -281,7 +281,6 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     topLeft: mat.clone().inverse().applyToPoint(0, 0),
     bottomRight: mat.clone().inverse().applyToPoint(iw, ih)
   };
-  console.log("Imagepostion", imagePosition);
   var highlightedRegion = useMemo(function () {
     var highlightedRegions = regions.filter(function (r) {
       return r.highlighted;
@@ -391,7 +390,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     regions: regions
   }), /*#__PURE__*/React.createElement("canvas", {
     style: {
-      opacity: 0.25
+      opacity: 0.25,
+      height: "100%"
     },
     className: classes.canvas,
     ref: canvasEl

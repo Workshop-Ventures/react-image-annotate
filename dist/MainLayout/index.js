@@ -27,7 +27,7 @@ import HistorySidebarBox from "../HistorySidebarBox";
 import useEventCallback from "use-event-callback";
 import getHotkeyHelpText from "../utils/get-hotkey-help-text";
 import ClassSelectionMenu from "../ClassSelectionMenu";
-import { Button } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 var emptyArr = [];
 var useStyles = makeStyles(function (theme) {
   console.log("Theme", theme);
@@ -356,14 +356,28 @@ export var MainLayout = function MainLayout(_ref2) {
     }), false && /*#__PURE__*/React.createElement(HistorySidebarBox, {
       history: state.history,
       onRestoreHistory: action("RESTORE_HISTORY")
-    }), /*#__PURE__*/React.createElement(Button, {
+    }), /*#__PURE__*/React.createElement(Box, {
+      display: "flex",
+      justifyContent: "space-evenly",
+      m: 2
+    }, /*#__PURE__*/React.createElement(Button, {
+      variant: "contained",
+      color: "primary",
       onClick: function onClick() {
         dispatch({
           type: "HEADER_BUTTON_CLICKED",
           buttonName: "Save"
         });
       }
-    }, "Save")].filter(Boolean)
+    }, "Save"), /*#__PURE__*/React.createElement(Button, {
+      variant: "contained",
+      onClick: function onClick() {
+        dispatch({
+          type: "HEADER_BUTTON_CLICKED",
+          buttonName: "Cancel"
+        });
+      }
+    }, "Cancel"))].filter(Boolean)
   }, canvas), /*#__PURE__*/React.createElement(SettingsDialog, {
     open: state.settingsOpen,
     onClose: function onClose() {

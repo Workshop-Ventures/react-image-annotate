@@ -11,7 +11,7 @@ export default {
     bottom: 16,
     right: 0,
     backgroundColor: "rgba(0,0,0,0.4)",
-    // color: "#fff",
+    color: "#fff",
     opacity: 0.5,
     fontWeight: "bolder",
     fontSize: 14,

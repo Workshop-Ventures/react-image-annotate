@@ -72,7 +72,7 @@ export var RegionTags = function RegionTags(_ref) {
           top: 0
         }, {
           zIndex: 10,
-          // backgroundColor: "#fff",
+          backgroundColor: "#fff",
           borderRadius: 4,
           padding: 2,
           paddingBottom: 0,
