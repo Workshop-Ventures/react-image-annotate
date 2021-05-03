@@ -229,7 +229,7 @@ export var WrappedRegionList = memo(function (_ref19) {
   }).map(function (r) {
     var Component = RegionComponents[r.type];
     return /*#__PURE__*/React.createElement(Component, {
-      key: r.regionId,
+      key: r.id,
       region: r,
       iw: iw,
       ih: ih,

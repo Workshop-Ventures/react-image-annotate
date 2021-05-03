@@ -95,7 +95,8 @@ export var ClassSelectionMenu = function ClassSelectionMenu(_ref) {
       }),
       onClick: function onClick() {
         return onSelectCls(label);
-      }
+      },
+      key: label
     }, /*#__PURE__*/React.createElement(Circle, {
       style: {
         backgroundColor: colors[index % colors.length]

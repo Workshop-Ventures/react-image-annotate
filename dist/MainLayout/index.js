@@ -250,6 +250,7 @@ export var MainLayout = function MainLayout(_ref2) {
       onChangeCurrentTime: action("CHANGE_VIDEO_TIME", "newTime"),
       keyframes: state.keyframes
     }) : activeImage ? /*#__PURE__*/React.createElement("div", {
+      key: "imageTitle",
       className: classes.headerTitle
     }, activeImage.name) : null].filter(Boolean),
     headerItems: [!hidePrev && {
@@ -319,15 +320,19 @@ export var MainLayout = function MainLayout(_ref2) {
       return a.alwaysShowing || state.enabledTools.includes(a.name);
     }),
     rightSidebarItems: [debugModeOn && /*#__PURE__*/React.createElement(DebugBox, {
+      key: "DebugBox",
       state: debugModeOn,
       lastAction: state.lastAction
     }), state.taskDescription && /*#__PURE__*/React.createElement(TaskDescription, {
+      key: "taskDescription",
       description: state.taskDescription
     }), state.regionClsList && /*#__PURE__*/React.createElement(ClassSelectionMenu, {
+      key: "ClassSelectionMenu",
       selectedCls: state.selectedCls,
       regionClsList: state.regionClsList,
       onSelectCls: action("SELECT_CLASSIFICATION", "cls")
     }), state.labelImages && /*#__PURE__*/React.createElement(TagsSidebarBox, {
+      key: "TagsSidebarBox",
       currentImage: activeImage,
       imageClsList: state.imageClsList,
       imageTagList: state.imageTagList,
@@ -342,11 +347,13 @@ export var MainLayout = function MainLayout(_ref2) {
     //   />
     // ),
     React.createElement(RegionSelector, {
+      key: "RegionSelector",
       regions: activeImage ? activeImage.regions : emptyArr,
       onSelectRegion: action("SELECT_REGION", "region"),
       onDeleteRegion: action("DELETE_REGION", "region"),
       onChangeRegion: action("CHANGE_REGION", "region")
     }), state.keyframes && /*#__PURE__*/React.createElement(KeyframesSelector, {
+      key: "KeyframesSelector",
       onChangeVideoTime: action("CHANGE_VIDEO_TIME", "newTime"),
       onDeleteKeyframe: action("DELETE_KEYFRAME", "time"),
       onChangeCurrentTime: action("CHANGE_VIDEO_TIME", "newTime"),
@@ -357,6 +364,7 @@ export var MainLayout = function MainLayout(_ref2) {
       history: state.history,
       onRestoreHistory: action("RESTORE_HISTORY")
     }), /*#__PURE__*/React.createElement(Box, {
+      key: "save-buttons",
       display: "flex",
       justifyContent: "space-evenly",
       m: 2
