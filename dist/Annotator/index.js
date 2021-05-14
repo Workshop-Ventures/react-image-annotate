@@ -82,6 +82,7 @@ export var Annotator = function Annotator(_ref) {
     showMask: true,
     labelImages: imageClsList.length > 0 || imageTagList.length > 0,
     regionClsList: regionClsList,
+    selectedCls: regionClsList[0],
     regionTagList: regionTagList,
     imageClsList: imageClsList,
     imageTagList: imageTagList,

@@ -197,6 +197,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
   if (canvas && imageLoaded) {
     var clientWidth = canvas.clientWidth,
         clientHeight = canvas.clientHeight;
+    console.log("Height", clientHeight);
     var fitScale = Math.max(imageDimensions.naturalWidth / (clientWidth - 20), imageDimensions.naturalHeight / (clientHeight - 20));
 
     var _iw = imageDimensions.naturalWidth / fitScale,
@@ -390,8 +391,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     regions: regions
   }), /*#__PURE__*/React.createElement("canvas", {
     style: {
-      opacity: 0.25,
-      height: "100%"
+      opacity: 0.25
     },
     className: classes.canvas,
     ref: canvasEl

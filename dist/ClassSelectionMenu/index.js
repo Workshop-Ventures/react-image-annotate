@@ -7,6 +7,7 @@ import colors from "../colors";
 import BallotIcon from "@material-ui/icons/Ballot";
 import capitalize from "lodash/capitalize";
 import classnames from "classnames";
+import { Typography } from "@material-ui/core";
 var LabelContainer = styled("div")({
   display: "flex",
   paddingTop: 4,
@@ -15,14 +16,15 @@ var LabelContainer = styled("div")({
   paddingRight: 16,
   alignItems: "center",
   cursor: "pointer",
-  opacity: 0.7,
+  opacity: 0.5,
   backgroundColor: "#fff",
   "&:hover": {
     opacity: 1
   },
   "&.selected": {
     opacity: 1,
-    fontWeight: "bold"
+    fontWeight: "bold" // fontSize: 13,
+
   }
 });
 var Circle = styled("div")({
@@ -105,11 +107,17 @@ export var ClassSelectionMenu = function ClassSelectionMenu(_ref) {
       className: classnames({
         selected: label === selectedCls
       })
-    }, capitalize(label)), /*#__PURE__*/React.createElement(DashSep, null), /*#__PURE__*/React.createElement(Number, {
+    }, /*#__PURE__*/React.createElement(Typography, {
+      variant: "caption",
+      color: "textPrimary"
+    }, capitalize(label))), /*#__PURE__*/React.createElement(DashSep, null), /*#__PURE__*/React.createElement(Number, {
       className: classnames({
         selected: label === selectedCls
       })
-    }, index < 9 ? "Key [".concat(index + 1, "]") : ""));
+    }, /*#__PURE__*/React.createElement(Typography, {
+      variant: "caption",
+      color: "textPrimary"
+    }, index < 9 ? "Key [".concat(index + 1, "]") : "")));
   }), /*#__PURE__*/React.createElement(Box, {
     pb: 2
   }));
