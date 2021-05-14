@@ -7,6 +7,7 @@ import colors from "../colors"
 import BallotIcon from "@material-ui/icons/Ballot"
 import capitalize from "lodash/capitalize"
 import classnames from "classnames"
+import { Typography } from "@material-ui/core"
 
 const LabelContainer = styled("div")({
   display: "flex",
@@ -16,7 +17,7 @@ const LabelContainer = styled("div")({
   paddingRight: 16,
   alignItems: "center",
   cursor: "pointer",
-  opacity: 0.7,
+  opacity: 0.5,
   backgroundColor: "#fff",
   "&:hover": {
     opacity: 1,
@@ -24,6 +25,7 @@ const LabelContainer = styled("div")({
   "&.selected": {
     opacity: 1,
     fontWeight: "bold",
+    // fontSize: 13,
   },
 })
 const Circle = styled("div")({
@@ -87,11 +89,15 @@ export const ClassSelectionMenu = ({
         >
           <Circle style={{ backgroundColor: colors[index % colors.length] }} />
           <Label className={classnames({ selected: label === selectedCls })}>
-            {capitalize(label)}
+            <Typography variant="caption" color="textPrimary">
+              {capitalize(label)}
+            </Typography>
           </Label>
           <DashSep />
           <Number className={classnames({ selected: label === selectedCls })}>
-            {index < 9 ? `Key [${index + 1}]` : ""}
+            <Typography variant="caption" color="textPrimary">
+              {index < 9 ? `Key [${index + 1}]` : ""}
+            </Typography>
           </Number>
         </LabelContainer>
       ))}
